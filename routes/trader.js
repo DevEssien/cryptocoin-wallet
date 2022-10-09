@@ -9,3 +9,7 @@ router.get('/', getHome);
 router.get('/trader', getTrader)
 
 module.exports = router;
+
+/*
+    visit the /trader route to get the data on the browser
+ */

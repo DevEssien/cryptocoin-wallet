@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 
@@ -9,6 +10,11 @@ const traderRoute = require('./routes/trader');
 const Trader = require('./models/trader');
 const apiCall = require('./utils/seedDB');
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+app.use(express.static('public'));
+app.use(express.static('images'));
 app.use(traderRoute);
 app.use(bodyParser.urlencoded({extended: true}));
 
