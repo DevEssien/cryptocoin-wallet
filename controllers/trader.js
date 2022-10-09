@@ -7,7 +7,7 @@ const getHome = async (req, res, next) => {
 const getTrader = async (req, res, next) => {
     try {
         const traders = await Trader.findAll();
-        if (!traders) return res.status(404).send({status: 'Failed', message: 'No record found'});
+        if (!traders) return res.status(204).send({ message: 'No record found' });
         res.render('trader', { traders: traders });
     } catch(error) {
         console.log('error: ', error);
